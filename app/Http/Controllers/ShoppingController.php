@@ -11,7 +11,7 @@ class ShoppingController extends Controller
 {
     public function index()
     {
-        $products = Product::all();
+        $products = Product::where('stock_quantity' , '>', 0)->get();
         $allProducts = $products;
         $searchWord = "";
         $categories = Category::all();
@@ -26,8 +26,10 @@ class ShoppingController extends Controller
             "name" => "string|max:255"
         ]);
         $searchWord = $request->searchWord;
-        $products = Product::where('name', 'LIKE', "%$searchWord%")->get();
-        $allProducts = Product::all();
+        $products = Product::where('name', 'LIKE', "%$searchWord%")
+        ->where('stock_quantity' , '>', 0)
+        ->get();
+        $allProducts = Product::where('stock_quantity' , '>', 0)->get();
         $categories = Category::all();
         if($products->isEmpty()){
             return redirect()->route('shopping.index')->with('error', 'No products found with name: ' . $searchWord);
@@ -44,7 +46,9 @@ class ShoppingController extends Controller
 
     public function category($id)
     {
-        $products = Product::where('category_id', $id)->get();
+        $products = Product::where('category_id', $id)
+        ->where('stock_quantity' , '>', 0)
+        ->get();
         $allProducts = $products;
         $searchWord = "";
         $categories = Category::all();
