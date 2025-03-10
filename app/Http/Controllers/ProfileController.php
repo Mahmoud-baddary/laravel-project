@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Profile;
+use App\Models\User;
 use Auth;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class ProfileController extends Controller
     public function index()
     {
         $user = Auth ::user();
-      return view("user.profile", compact("user"));
+        $profile = $user->profile;
+      return view("user.profile", compact("user", 'profile'));
     }
 
     /**

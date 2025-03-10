@@ -80,7 +80,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('profile') }}">
+                                    <a class="dropdown-item" href="{{ route('profile.index') }}">
                                         Profile
                                     </a>
                                     <a class="dropdown-item" href="{{ route('cart.index') }}">

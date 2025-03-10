@@ -4,6 +4,9 @@
         <div class="d-flex justify-content-center">
             <x-alerts.errors></x-alerts.errors>
         </div>
+        @php
+            session()->forget('error');
+        @endphp
         <div class="container my-5">
             <div class="row row-cols-1 row-cols-md-4 g-4">
                 @foreach ($products as $product)

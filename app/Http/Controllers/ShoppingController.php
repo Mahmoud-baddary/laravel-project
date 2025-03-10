@@ -16,7 +16,7 @@ class ShoppingController extends Controller
         $searchWord = "";
         $categories = Category::all();
         if($allProducts->isEmpty()){
-            Session::flash('error', 'No products have been added yet');
+            session()->flash('error', 'No products have been added yet');
         }
         return view("shopping.index", compact("products", 'searchWord', 'allProducts', 'categories'));
     }
