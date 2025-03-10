@@ -16,6 +16,6 @@ class isSeller
         if($user->isSeller()|| $user->isAdmin()){
             return $next($request);
         }
-        abort(403, "Unauthorized");
+        return redirect()->route('home')->with('status', 'login with a seller acount to reach this page');
     }
 }
