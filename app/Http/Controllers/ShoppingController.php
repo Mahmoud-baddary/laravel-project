@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Session;
 
 class ShoppingController extends Controller
 {
@@ -14,6 +15,9 @@ class ShoppingController extends Controller
         $allProducts = $products;
         $searchWord = "";
         $categories = Category::all();
+        if($allProducts->isEmpty()){
+            Session::flash('error', 'No products have been added yet');
+        }
         return view("shopping.index", compact("products", 'searchWord', 'allProducts', 'categories'));
     }
     public function search(Request $request)

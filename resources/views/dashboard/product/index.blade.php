@@ -43,6 +43,7 @@
                     @endforeach
                 </tbody>
             </table>
+            {{ $products->links() }}
         </div>
     </x-dashboard.layout>
 @endsection

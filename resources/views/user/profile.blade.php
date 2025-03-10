@@ -50,12 +50,12 @@
                     <label class="form-label fw-bold" for="male">Male</label>
                     &nbsp;
                     <input class="form-check" type="radio" id="male" name="gender" value="1"
-                        {{ @$user->profile->gender ? 'checked' : '' }}>
+                        {{ @$user->profile->gender == 1 ? 'checked' : '' }} required>
                     &nbsp;&nbsp;
                     <label class="form-label fw-bold" for="female">Female</label>
                     &nbsp;
                     <input class="form-check" type="radio" id="female" name="gender" value="0"
-                        {{ @$user->profile->gender ? '' : 'checked' }}>
+                        {{ @$user->profile->gender == 0 ? 'checked' : '' }} required>
                 </div>
             </div>
             <div class="d-flex justify-content-between flex-md-row flex-column">
