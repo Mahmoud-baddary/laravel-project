@@ -16,7 +16,7 @@
     <link href="{{ asset('style/css/bootstrap.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <style>
-        
+
         #selected-keywords {
             margin-top: 10px;
         }
@@ -38,6 +38,9 @@
             <div class="container">
                 <a href="{{ url()->previous() }}" class="btn btn-secondary me-2">
                     <i class="bi bi-arrow-left"></i> Back
+                </a>
+                <a class="btn btn-warning me-2" href="{{ route('shopping.index') }}">
+                    Continue shopping
                 </a>
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}

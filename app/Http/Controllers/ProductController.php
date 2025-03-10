@@ -20,7 +20,7 @@ class ProductController extends Controller
         $user = Auth()->user();
         $products = Product::with('category', 'user')
         ->where('user_id', $user->id)
-        ->latest()->paginate(1);
+        ->latest()->paginate(10);
         return view("dashboard.product.index", compact("products"));
     }
 
